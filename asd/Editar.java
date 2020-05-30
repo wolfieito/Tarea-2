@@ -32,7 +32,7 @@ public class Editar extends AppCompatActivity {
         tvEmail.setText("Email "+Email);
         tvTel.setText("Telefono "+Telefono);
         tvDesc.setText("Descripcion del contacto "+Descripcion);
-        tvFecha.setText("Fecha de nacimiento "+iDia+"/"+iMes+"/"+iAño);
+        tvFecha.setText("Fecha de nacimiento "+iDia+"/"+(iMes+1)+"/"+iAño);
         Button edit = (Button) findViewById(R.id.btnEditar);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
