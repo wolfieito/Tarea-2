@@ -42,23 +42,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Bundle Parametros = getIntent().getExtras();
-        String Nombre = Parametros.getString(getResources().getString(R.string.pnombre));
-        String Telefono = Parametros.getString(getResources().getString(R.string.ptelefono));
-        String Email = Parametros.getString(getResources().getString(R.string.pemail));
-        String Descripcion = Parametros.getString(getResources().getString(R.string.pdesc));
-        int iDia = Parametros.getInt("Dia");
-        int iMes = Parametros.getInt("Mes");
-        int iAño = Parametros.getInt("Año");
-        EditText txtNom = (EditText) findViewById(R.id.txtNombre);
-        EditText txtTel = (EditText) findViewById(R.id.txtTelefono);
-        EditText txtDesc = (EditText) findViewById(R.id.txaDesc);
-        EditText txtEmail = (EditText) findViewById(R.id.txtCorreo);
-        DatePicker dp = (DatePicker)findViewById(R.id.dpEd);
-        txtNom.setText(Nombre);
-        txtEmail.setText(Email);
-        txtTel.setText(Telefono);
-        txtDesc.setText(Descripcion);
-        dp.updateDate(iAño,iMes,iDia);
+            Bundle Parametros = getIntent().getExtras();
+            if(Parametros != null){
+            String Nombre = Parametros.getString(getResources().getString(R.string.pnombre));
+            String Telefono = Parametros.getString(getResources().getString(R.string.ptelefono));
+            String Email = Parametros.getString(getResources().getString(R.string.pemail));
+            String Descripcion = Parametros.getString(getResources().getString(R.string.pdesc));
+            int iDia = Parametros.getInt("Dia");
+            int iMes = Parametros.getInt("Mes");
+            int iAño = Parametros.getInt("Año");
+            EditText txtNom = (EditText) findViewById(R.id.txtNombre);
+            EditText txtTel = (EditText) findViewById(R.id.txtTelefono);
+            EditText txtDesc = (EditText) findViewById(R.id.txaDesc);
+            EditText txtEmail = (EditText) findViewById(R.id.txtCorreo);
+            DatePicker dp = (DatePicker) findViewById(R.id.dpEd);
+            txtNom.setText(Nombre);
+            txtEmail.setText(Email);
+            txtTel.setText(Telefono);
+            txtDesc.setText(Descripcion);
+            dp.updateDate(iAño, iMes, iDia);
+            }
     }
 }

@@ -16,10 +16,10 @@ public class Editar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar);
         Bundle Parametros = getIntent().getExtras();
-        String Nombre = Parametros.getString(getResources().getString(R.string.pnombre));
-        String Telefono = Parametros.getString(getResources().getString(R.string.ptelefono));
-        String Email = Parametros.getString(getResources().getString(R.string.pemail));
-        String Descripcion = Parametros.getString(getResources().getString(R.string.pdesc));
+        final String Nombre = Parametros.getString(getResources().getString(R.string.pnombre));
+        final String Telefono = Parametros.getString(getResources().getString(R.string.ptelefono));
+        final String Email = Parametros.getString(getResources().getString(R.string.pemail));
+        final String Descripcion = Parametros.getString(getResources().getString(R.string.pdesc));
         int iDia = Parametros.getInt("Dia");
         int iMes = Parametros.getInt("Mes");
         int iAño = Parametros.getInt("Año");
@@ -38,18 +38,18 @@ public class Editar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Editar.this, MainActivity.class);
-                final TextView txtEd = (TextView) findViewById(R.id.tvNombreEd);
-                final TextView txtEd2 = (TextView) findViewById(R.id.tvTelEd);
-                final TextView txtEd3 = (TextView) findViewById(R.id.tvCorreoEd);
-                final TextView txtEd4 = (TextView) findViewById(R.id.tvDescEd);
+                final TextView txtEd = (TextView) findViewById(R.id.txtNombre);
+                final TextView txtEd2 = (TextView) findViewById(R.id.txtTelefono);
+                final TextView txtEd3 = (TextView) findViewById(R.id.txtCorreo);
+                final TextView txtEd4 = (TextView) findViewById(R.id.txaDesc);
                 Bundle Parametros = getIntent().getExtras();
                 final int dd = Parametros.getInt("Dia");
                 final int mm = Parametros.getInt("Mes");
                 final int aa = Parametros.getInt("Año");
-                i.putExtra(getResources().getString(R.string.pnombre), txtEd.getText().toString());
-                i.putExtra(getResources().getString(R.string.ptelefono), txtEd2.getText().toString());
-                i.putExtra(getResources().getString(R.string.pemail), txtEd3.getText().toString());
-                i.putExtra(getResources().getString(R.string.pdesc), txtEd4.getText().toString());
+                i.putExtra(getResources().getString(R.string.pnombre), Nombre);
+                i.putExtra(getResources().getString(R.string.ptelefono), Telefono);
+                i.putExtra(getResources().getString(R.string.pemail), Email);
+                i.putExtra(getResources().getString(R.string.pdesc), Descripcion);
                 i.putExtra("Dia", dd);
                 i.putExtra("Mes", mm);
                 i.putExtra("Año", aa);
